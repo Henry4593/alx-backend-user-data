@@ -14,7 +14,7 @@ from api.v1.auth.auth import Auth
 import base64
 import re
 import binascii
-from typing import Tuple, TypeVar, Union
+from typing import Tuple, TypeVar
 from models.user import User
 
 
@@ -28,7 +28,7 @@ class BasicAuth(Auth):
 
     def extract_base64_authorization_header(
             self,
-            authorization_header: str) -> Union[str, None]:
+            authorization_header: str) -> str:
         """
         Extracts the Base64-encoded token from an HTTP Basic Authorization
         header.
@@ -52,7 +52,7 @@ class BasicAuth(Auth):
 
     def decode_base64_authorization_header(
             self,
-            base64_authorization_header: str) -> Union[str, None]:
+            base64_authorization_header: str) -> str:
         """
         Decodes a Base64-encoded authorization token into a UTF-8 string.
 
